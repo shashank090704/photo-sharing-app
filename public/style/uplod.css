@@ -1,0 +1,16 @@
+body{
+    background-color: gray;
+}
+#imgs{
+    height: 30%;
+    width: 20%;
+    display: grid;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#cont{
+    height: 30%;
+    width: 20%;
+    margin-top: 20px;
+    margin-left: 20px;
+}

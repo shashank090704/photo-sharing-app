@@ -1,0 +1,87 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Added to ensure padding and borders are included in element's total width and height */
+}
+
+body {
+    background-image: url(../images/uploads/1c021ad91cc708837abf9211a200d42c.jpg);
+    background-size: cover; /* Changed from 'contain' to 'cover' to ensure the image covers the entire viewport */
+    background-repeat: no-repeat; /* Added to avoid repeating the background image */
+    background-color: gray;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column; /* Added to ensure elements stack vertically */
+    justify-content: center;
+    gap: 10px; /* Increased gap for better spacing */
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto; /* Changed to auto to adapt to content */
+    width: 90%; /* Changed to percentage for responsiveness */
+    max-width: 400px; /* Added to set a maximum width */
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    padding: 20px; /* Added padding for better spacing within the container */
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem; /* Changed to rem for better scalability */
+    border-radius: 12px;
+    padding: 10px; /* Changed padding for better input appearance */
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%; /* Ensures input fields take the full width of their container */
+}
+
+#registerheading {
+    margin: 10px 0;
+    text-align: center; /* Added text-align to center the heading */
+}
+
+#rgtbtn {
+    display: block;
+    height: 35px;
+    width: 100%; /* Changed to 100% for responsiveness */
+    max-width: 150px; /* Added a maximum width */
+    border-radius: 10px;
+    background-color: red;
+    color: white; /* Added text color for better contrast */
+    border: none; /* Removed default border */
+    cursor: pointer; /* Added cursor pointer to indicate button */
+}
+
+#already {
+    text-decoration: none;
+    color: black;
+    text-align: center; /* Added text-align to center the link */
+    display: block; /* Changed to block for better alignment */
+    margin-top: 10px; /* Added margin for spacing */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full width on very small screens */
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    #rgtbtn {
+        width: 100%; /* Full width for the button on small screens */
+        max-width: none; /* Remove maximum width restriction */
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../style/stlep.css">
+    
+</head>
+<body>
+    <div class="header">
+        <a id="feed" href="/feed"> feed</a>
+        <a id="logout" href="/logout">logout</a>
+       
+    </div>
+   <div class="container">
+    <img id="dp" src="/images/uploads/<%= user.dp %>" alt="">
+    <!-- <img id="dp" src="/images/uploads/Screenshot 2024-05-23 235437.png" alt=""> -->
+    <!-- <h1></h1> -->
+    <div class="n" ><%= user.name %></div>
+    <div class="n">@<%= user.username %></div>
+    <form id="uploddp" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">upload</button>
+
+    </form>
+    <!-- <form id="uplodcnt" action="/uploadcnt" method="post" enctype="multipart/form-data">
+        <input id="imgs" type="file" name="file">
+        <input  id="cont" type="text" name="desc">
+        <button type="submit">upload</button>
+
+    </form> -->
+   <a class="upc" href="/uploadcontent">Upload</a>
+</div>
+    <div class="container2">
+        <% user.posts.forEach(post => { %>
+            <div class="card">
+            <img src="/images/uploads/<%= post.image%>" alt="">
+            <div class="txt"><%=post.desc%></div>
+        </div>
+      <%    }); %>
+        
+       
+
+    </div>
+    
+
+<script> 
+ let dp =  document.querySelector("#dp");
+      if(dp.getAttribute('src') == "/images/uploads/"){
+        console.log("yes")
+      dp.setAttribute("src", "/images/uploads/Screenshot 2024-05-23 235437.png");
+
+     }
+     document.querySelector("#dp").addEventListener("click", function(){
+          document.querySelector("#uploddp input").click();
+     })
+     document.querySelector("#uploddp input").addEventListener("change", function(){
+        document.querySelector("#uploddp").submit();
+     })
+
+    
+    
+</script>
+</body>
+</html>

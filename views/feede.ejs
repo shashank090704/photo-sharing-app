@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/feedes.css">
+</head>
+<body>
+    <div class="header">
+        <!-- <a id="home"  href="/profile">HOME</a> -->
+        <a id="feed" href="/profile">Profile</a>
+        <a id="logout" href="/logout">logout</a>
+       
+    </div>
+    <div class="container2">
+        <% posts.forEach(post => { %>
+            <div class="card">
+            <img src="/images/uploads/<%=post.image%>" alt="">
+            <div class="txt nvisi"><%=post.desc%></div>
+            <div class="user nvisi">By @<%=post.userid.username%></div>
+        </div>
+      <%    }); %>
+    </div>
+      <div class="view nvisi">
+            <img id="viewimg"  src="" alt="">
+            <div id="viewtxt" style="background-color: black;" ></div>
+            <div class="viewuser" style="background-color: white; font-style: italic; font-family: Arial, Helvetica, sans-serif;"></div>
+      </div>
+
+</body>
+       <script>
+           
+           let cards = document.querySelectorAll(".card");
+           cards.forEach((card)=>{
+            card.addEventListener("click", function(){
+                console.log("hi")
+             document.querySelector(".view").classList.remove("nvisi") 
+                 let txt = card.querySelector('.txt').innerText;
+                 let user = card.querySelector(".user").innerText;
+                 let img = card.querySelector('img').src
+                 document.querySelector("#viewtxt").innerText = txt;
+                 document.querySelector("#viewimg").setAttribute("src", img)
+                 document.querySelector(".viewuser").innerText = user;
+                 
+                
+                  
+            })
+           })
+
+           document.querySelector("#viewimg").addEventListener("click", function(){
+                    document.querySelector(".view").classList.add("nvisi")
+                 })
+          
+
+       </script>
+</html>
